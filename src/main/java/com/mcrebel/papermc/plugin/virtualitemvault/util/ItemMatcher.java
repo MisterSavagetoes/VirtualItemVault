@@ -42,7 +42,7 @@ public class ItemMatcher {
 				return false;
 			}
 		} else {
-			if(meta.lore().size() > 0) {
+			if(meta.lore() != null && meta.lore().size() > 0) {
 				return false;
 			}
 		}

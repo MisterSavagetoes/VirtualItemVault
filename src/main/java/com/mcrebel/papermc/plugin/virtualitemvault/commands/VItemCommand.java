@@ -47,7 +47,7 @@ public class VItemCommand implements CommandExecutor {
 
     private void handleBalance(Player p) {
         service.getBalance(p.getUniqueId()).thenAccept(bal ->
-            p.sendMessage(cfg.prefix() + cfg.msgBalance().replace("%amount%", Text.formatLong(bal)))
+            p.sendMessage(cfg.prefix() + cfg.msgBalance().replace("%amount%", Text.formatLong(bal)).replace("%name%", bal == 1 ? cfg.singularName() : cfg.pluralName()))
         );
     }
 

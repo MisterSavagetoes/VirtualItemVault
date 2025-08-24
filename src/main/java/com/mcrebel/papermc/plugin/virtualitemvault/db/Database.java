@@ -24,9 +24,10 @@ public class Database {
 		ds = new HikariDataSource(hc);
 
 		try (Connection c = getConnection(); Statement st = c.createStatement()) {
-			st.executeUpdate("CREATE TABLE IF NOT EXISTS %s (" + "  player_uuid CHAR(36) PRIMARY KEY, "
+			st.executeUpdate(("CREATE TABLE IF NOT EXISTS %s (" + "  player_uuid CHAR(36) PRIMARY KEY, "
 					+ "  amount BIGINT NOT NULL "
-					+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4".formatted(cfg.tableName()));
+					+ ") ENGINE=InnoDB DEFAULT CHARSET=utf8mb4")
+					.formatted(cfg.tableName()));
 		} catch (SQLException e) {
 			plugin.getLogger().severe("Failed to init database: " + e.getMessage());
 		}

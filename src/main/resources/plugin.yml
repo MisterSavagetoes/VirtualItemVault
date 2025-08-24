@@ -1,5 +1,5 @@
 name: VirtualItemVault
-main: com.example.virtualitemvault.VirtualItemVaultPlugin
+main: com.mcrebel.papermc.plugin.virtualitemvault.VirtualItemVaultPlugin
 version: 1.0.0
 api-version: '1.21.4'
 description: Deposit & withdraw a configured item to a virtual balance stored in MySQL.

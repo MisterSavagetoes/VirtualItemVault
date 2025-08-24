@@ -13,6 +13,8 @@ public class PluginConfig {
 	private VirtualItemVaultPlugin plugin;
 	
 	private ItemDefinition item;
+	private String singularName = "Diamond";
+	private String pluralName = "Diamonds";
 	private String prefix, msgNoItem, msgDeposited, msgWithdrew, msgBalance, msgNotNumber, msgNotEnoughStored,
 			msgInventoryFull;
 
@@ -46,7 +48,10 @@ public class PluginConfig {
 		maxPool = mysql.getConfigurationSection("pool").getInt("maxPoolSize");
 		tableName = mysql.getString("tableName", "virtual_item_balances");
 
-		item = ItemDefinition.fromConfig(cfg.getConfigurationSection("item"));
+		ConfigurationSection i = cfg.getConfigurationSection("item");
+		item = ItemDefinition.fromConfig(i);
+		singularName = i.getString("singularName", "Diamond");
+		pluralName = i.getString("pluralName", "Diamonds");
 
 		ConfigurationSection m = cfg.getConfigurationSection("messages");
 		prefix = Color.color(m.getString("prefix"));
@@ -129,5 +134,13 @@ public class PluginConfig {
 	
 	public boolean useSSL() {
 		return useSSL;
+	}
+	
+	public String singularName() {
+		return singularName;
+	}
+	
+	public String pluralName() {
+		return pluralName;
 	}
 }

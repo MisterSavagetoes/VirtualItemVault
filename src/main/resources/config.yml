@@ -10,6 +10,8 @@ mysql:
   tableName: "virtual_item_balances"
 item:
   material: "DIAMOND"
+  singularName: "Diamond"
+  plluralName: "Diamonds"
   name: ""
   lore: []
   customModelData: -1
@@ -19,7 +21,7 @@ messages:
   noItem: "&cYou don't have enough."
   deposited: "&aDeposited &e%amount%&a."
   withdrew: "&aWithdrew &e%amount%&a."
-  balance: "&aYou have &e%amount%&a stored."
+  balance: "&aYou have &e%amount%&a %name% stored."
   notNumber: "&cPlease enter a number or 'all'."
   notEnoughStored: "&cYou don't have that many stored."
   inventoryFull: "&eYour inventory is full. %leftover% items not withdrawn."
