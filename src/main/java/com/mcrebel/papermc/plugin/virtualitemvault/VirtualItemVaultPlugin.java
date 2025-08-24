@@ -1,12 +1,11 @@
 package com.mcrebel.papermc.plugin.virtualitemvault;
 
-import com.mcrebel.papermc.plugin.virtualitemvault.commands.VItemCommand;
-import com.mcrebel.papermc.plugin.virtualitemvault.config.PluginConfig;
-import com.mcrebel.papermc.plugin.virtualitemvault.db.BalanceRepository;
-import com.mcrebel.papermc.plugin.virtualitemvault.db.Database;
-import com.mcrebel.papermc.plugin.virtualitemvault.service.BalanceService;
-
 import org.bukkit.plugin.java.JavaPlugin;
+
+import com.mcrebel.papermc.plugin.virtualitemvault.commands.VItemCommand;
+import com.mcrebel.papermc.plugin.virtualitemvault.commands.VItemTabComplete;
+import com.mcrebel.papermc.plugin.virtualitemvault.config.PluginConfig;
+import com.mcrebel.papermc.plugin.virtualitemvault.service.BalanceService;
 
 public class VirtualItemVaultPlugin extends JavaPlugin {
     private PluginConfig config;
@@ -22,6 +21,7 @@ public class VirtualItemVaultPlugin extends JavaPlugin {
 
         if (getCommand("vitem") != null) {
             getCommand("vitem").setExecutor(new VItemCommand(this, service, config));
+            getCommand("vitem").setTabCompleter(new VItemTabComplete());
         }
         getLogger().info("VirtualItemVault enabled.");
     }
