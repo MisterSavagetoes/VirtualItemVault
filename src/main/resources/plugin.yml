@@ -1,0 +1,15 @@
+name: VirtualItemVault
+main: com.example.virtualitemvault.VirtualItemVaultPlugin
+version: 1.0.0
+api-version: '1.21.4'
+description: Deposit & withdraw a configured item to a virtual balance stored in MySQL.
+author: MisterSavagetoes
+commands:
+  vitem:
+    description: Virtual item vault commands
+    usage: "/vitem <deposit|withdraw|balance> [amount|all]"
+    aliases: [virtualitem, viv, vivault]
+permissions:
+  viv.use:
+    description: Use /vitem commands
+    default: true
